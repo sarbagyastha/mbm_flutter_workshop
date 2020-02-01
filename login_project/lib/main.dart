@@ -45,22 +45,8 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  OutlineButton(
-                    borderSide: BorderSide(
-                      color: Colors.indigo,
-                    ),
-                    textColor: Colors.indigo,
-                    onPressed: () {},
-                    child: Text('Login with G'),
-                  ),
-                  OutlineButton(
-                    borderSide: BorderSide(
-                      color: Colors.indigo,
-                    ),
-                    textColor: Colors.indigo,
-                    onPressed: () {},
-                    child: Text('Login with f'),
-                  ),
+                  _OutlineButton('Login with G'),
+                  _OutlineButton('Login with f'),
                 ],
               ),
               _space,
@@ -115,13 +101,11 @@ class _LoginPageState extends State<LoginPage> {
                 textColor: Colors.white,
               ),
               SizedBox(height: 100.0),
-              OutlineButton(
-                borderSide: BorderSide(
-                  color: Colors.indigo,
-                ),
-                textColor: Colors.indigo,
-                onPressed: () {},
-                child: Text('Sign Up'),
+              _OutlineButton(
+                'Sign Up',
+                onTap: () {
+                  print('signed up');
+                },
               ),
             ],
           ),
@@ -131,4 +115,23 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget get _space => SizedBox(height: 20.0);
+}
+
+class _OutlineButton extends StatelessWidget {
+  final String buttonText;
+  final void Function() onTap;
+
+  _OutlineButton(this.buttonText, {this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlineButton(
+      borderSide: BorderSide(
+        color: Colors.indigo,
+      ),
+      textColor: Colors.indigo,
+      onPressed: onTap,
+      child: Text(buttonText),
+    );
+  }
 }
