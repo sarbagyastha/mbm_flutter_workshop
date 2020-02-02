@@ -1,3 +1,3 @@
 class AppConfig {
-  static const String API_KEY = 'AIzaSyCiKZxoBwBLyuiib-4UQ3qj0eyctzaeCWI';
+  static const String API_KEY = <YOUR_API_KEY_HERE>;
 }
